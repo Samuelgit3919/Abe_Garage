@@ -1,12 +1,12 @@
-"use client"
 
-import Header from "./components/header"
-import Footer from "./components/footer"
 
-export default function Contact({ currentPage, onNavigate }) {
+import Header from "../../Header/Header"
+import Footer from "../../Footer/Footer"
+import Layout from "../../../Layout"
+
+export default function Contact({ onNavigate }) {
     return (
-        <div className="min-h-screen">
-            <Header currentPage={currentPage} onNavigate={onNavigate} />
+        <Layout className="min-h-screen">
 
             {/* Hero Section */}
             <section className="relative h-64 bg-gray-900 flex items-center">
@@ -114,8 +114,6 @@ export default function Contact({ currentPage, onNavigate }) {
                     </div>
                 </div>
             </section>
-
-            <Footer />
-        </div>
+        </Layout>
     )
 }

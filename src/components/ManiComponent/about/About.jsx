@@ -1,12 +1,12 @@
-"use client"
 
-import Header from "./components/header"
-import Footer from "./components/footer"
+
+import Header from "../../Header/Header"
+import Footer from "../../Footer/Footer"
+import Layout from "../../../Layout"
 
 export default function About({ currentPage, onNavigate }) {
     return (
-        <div className="min-h-screen">
-            <Header currentPage={currentPage} onNavigate={onNavigate} />
+        <Layout className="min-h-screen">
 
             {/* Rest of the component remains the same - just update the ABOUT US button */}
             {/* Hero Section */}
@@ -206,7 +206,7 @@ export default function About({ currentPage, onNavigate }) {
                 </div>
             </section>
 
-            <Footer />
-        </div>
+
+        </Layout>
     )
 }

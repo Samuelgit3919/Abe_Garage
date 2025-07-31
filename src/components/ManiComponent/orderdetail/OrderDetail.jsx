@@ -1,10 +1,9 @@
-import Header from "./components/header"
-import Footer from "./components/footer"
 
-export default function OrderDetail({ currentPage, onNavigate }) {
+import Layout from "../../../Layout"
+
+export default function OrderDetail() {
     return (
-        <div className="min-h-screen">
-            <Header currentPage={currentPage} onNavigate={onNavigate} />
+        <Layout className="min-h-screen">
 
             {/* Rest of the component remains the same */}
             <main className="py-16 bg-gray-50">
@@ -123,7 +122,6 @@ export default function OrderDetail({ currentPage, onNavigate }) {
                 </div>
             </main>
 
-            <Footer />
-        </div>
+        </Layout>
     )
 }

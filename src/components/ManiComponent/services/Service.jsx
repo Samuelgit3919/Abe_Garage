@@ -1,12 +1,9 @@
-"use client"
 
-import Header from "./components/header"
-import Footer from "./components/footer"
+import Layout from "../../../Layout"
 
-export default function Service({ currentPage, onNavigate }) {
+export default function Service({ onNavigate }) {
     return (
-        <div className="min-h-screen">
-            <Header currentPage={currentPage} onNavigate={onNavigate} />
+        <Layout className="min-h-screen">
 
             {/* Hero Section */}
             <section className="relative h-64 bg-gray-900 flex items-center">
@@ -184,7 +181,6 @@ export default function Service({ currentPage, onNavigate }) {
                 </div>
             </section>
 
-            <Footer />
-        </div>
+        </Layout>
     )
 }

@@ -5,12 +5,55 @@ import Footer from "../../Footer/Footer"
 import bannerImage from "../../../assets/BannerImage/banner.jpg"
 import Gear from "../../../assets/DisplayImages/Gear.jpg"
 import Oil from "../../../assets/DisplayImages/oil.jpg"
+import carDashboard from "../../../assets/DisplayImages/speed-Gage.jpg"
+import carCol from "../../../assets/DisplayImages/car-col.png"
+import brake from "../../../assets/ServiceImages/brake-disk.png"
+import autoTransmission from "../../../assets/ServiceImages/automatic-transmission.png"
+import flatTire from "../../../assets/ServiceImages/flat-tire.png"
+import sprayGun from "../../../assets/ServiceImages//spray-gun.png"
+import carEngine from "../../../assets/ServiceImages//car-engine.png"
+import turbocharger from "../../../assets/Icons/Turbocharger.png"
 
-export default function Home({ currentPage, onNavigate }) {
+import Layout from "../../../Layout"
+
+
+
+export default function Home({ onNavigate }) {
+    const service = [
+        {
+            title: "Performance Upgrade",
+            category: "SERVICE AND REPAIRS",
+            img: turbocharger
+        },
+        {
+            title: "Transmission Services",
+            category: "SERVICE AND REPAIRS",
+            img: autoTransmission
+        },
+        {
+            title: "Break Repair & Service",
+            category: "SERVICE AND REPAIRS",
+            img: brake
+        },
+        {
+            title: "Engine Service & Repair",
+            category: "SERVICE AND REPAIRS",
+            img: carEngine
+        },
+        {
+            title: "Tyre & Wheels",
+            category: "SERVICE AND REPAIRS",
+            img: flatTire
+        },
+        {
+            title: "Denting & Painting",
+            category: "SERVICE AND REPAIRS",
+            img: sprayGun
+        },
+    ]
+
     return (
-        <div className="min-h-screen">
-            <Header currentPage={currentPage} onNavigate={onNavigate} />
-
+        <Layout className="min-h-screen">
             {/* Hero Section */}
             <section className="relative h-96 bg-gray-900 flex items-center">
                 <div
@@ -19,7 +62,7 @@ export default function Home({ currentPage, onNavigate }) {
                         backgroundImage: `url(${bannerImage})`,
                     }}
                 />
-                <div className="relative max-w-7xl mx-auto px-4 text-white">
+                <div className="absolute max-w-7xl mx-auto px-4 text-white right-12 left-12">
                     <div className="max-w-lg">
                         <p className="text-sm mb-2">Working since 1992</p>
                         <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -47,7 +90,7 @@ export default function Home({ currentPage, onNavigate }) {
             {/* Experience Section */}
             <section className="py-16 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="grid md:grid-cols-2 items-center">
                         <div className="relative">
                             <span className="flex gap-2">
                                 <img src={Oil} alt="gear image" />
@@ -92,7 +135,7 @@ export default function Home({ currentPage, onNavigate }) {
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">
+                        <p className="text-gray-600 text-[18px] max-w-2xl mx-auto">
                             Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day,
                             going forward, a new normal that has evolved from generation X is on the runway heading towards a
                             streamlined cloud solution.
@@ -100,14 +143,7 @@ export default function Home({ currentPage, onNavigate }) {
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
-                        {[
-                            { title: "Performance Upgrade", category: "SERVICE AND REPAIRS" },
-                            { title: "Transmission Services", category: "SERVICE AND REPAIRS" },
-                            { title: "Break Repair & Service", category: "SERVICE AND REPAIRS" },
-                            { title: "Engine Service & Repair", category: "SERVICE AND REPAIRS" },
-                            { title: "Tyre & Wheels", category: "SERVICE AND REPAIRS" },
-                            { title: "Denting & Painting", category: "SERVICE AND REPAIRS" },
-                        ].map((service, index) => (
+                        {service.map((service, index) => (
                             <div key={index} className="bg-white p-6 rounded-lg shadow-sm border hover:shadow-md transition-shadow">
                                 <p className="text-red-600 text-xs font-semibold mb-2">{service.category}</p>
                                 <h3 className="text-xl font-semibold text-gray-900 mb-4">{service.title}</h3>
@@ -119,13 +155,14 @@ export default function Home({ currentPage, onNavigate }) {
                                         READ MORE →
                                     </button>
                                     <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
-                                        <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                        {/* <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                                             <path
                                                 fillRule="evenodd"
                                                 d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
                                                 clipRule="evenodd"
                                             />
-                                        </svg>
+                                        </svg> */}
+                                        <img src={service.img} alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -134,23 +171,21 @@ export default function Home({ currentPage, onNavigate }) {
                 </div>
             </section>
 
-            {/* Quality Service Section */}
-            <section className="py-16 bg-red-600 text-white">
+            { /* Quality Service Section */}
+            <section className=" bg-red-600 text-white">
                 <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 className="text-3xl font-bold mb-6">Quality Service And Customer Satisfaction !!</h2>
-                        <p className="mb-6">
-                            We can fix your car problems and get you back on the road in no time! Our skilled technicians will get to
-                            work immediately and in a respectful manner. We are an Goodyear Authorized Service Center and we are proud
-                            to be your trusted auto repair facility.
+                    <div className="py-15">
+                        <h2 className="text-3xl font-bold mb-6">Quality Service And <br />Customer Satisfaction !!</h2>
+                        <p className="mb-6 flex-wrap ">
+                            We utilize the most recent symptomatic gear to enhance your vehicle is fixed
+                            or adjusted appropriately and in an opportunity manner.We are an individual
+                            from Professional auto Service, a first class execution arrange, where
+                            free assistance offices share shared objectives
+                            of being world-class car administration focuses.
                         </p>
-                        <ul className="space-y-2">
-                            <li>✓ Automotive Lockout Service</li>
-                            <li>✓ Emergency Roadside</li>
-                        </ul>
                     </div>
-                    <div>
-                        <img src="/placeholder.svg?height=400&width=500" alt="Car dashboard" className="rounded-lg" />
+                    <div className="h-full">
+                        <img src={carDashboard} alt="Car dashboard" className="h-full w-full object-contain" />
                     </div>
                 </div>
             </section>
@@ -160,7 +195,8 @@ export default function Home({ currentPage, onNavigate }) {
                 <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12">
                     <div>
                         <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Choose Us</h2>
-                        <p className="text-gray-600 mb-8">
+                        <hr className="max-w-[40px] font-bold  relative left-55 -top-7.5 text-red-600" />
+                        <p className="text-gray-600 text-[18px] mb-8">
                             Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day,
                             going forward, a new normal that has evolved from generation heading towards.
                         </p>
@@ -184,29 +220,33 @@ export default function Home({ currentPage, onNavigate }) {
 
                     <div>
                         <h2 className="text-3xl font-bold text-gray-900 mb-6">Additional Services</h2>
-                        <img src="/placeholder.svg?height=300&width=400" alt="Workshop" className="rounded-lg mb-6" />
+                        <hr className="max-w-[40px] relative font-bold  left-68 -top-7.5 text-red-600" />
+                        <span className="flex gap-6 items-start">
 
-                        <div className="grid grid-cols-2 gap-2 text-sm">
-                            {[
-                                "General Auto Repair & Maintenance",
-                                "Transmission Repair & Replacement",
-                                "Tire Repair and Replacement",
-                                "State Emissions Inspection",
-                                "Break Job / Break Services",
-                                "Electrical Diagnostics",
-                                "Fuel System Repairs",
-                                "Starting and Charging Repair",
-                                "Steering and Suspension Work",
-                                "Emission Repair Facility",
-                                "Wheel Alignment",
-                                "Computer Diagnostics Testing",
-                            ].map((service, index) => (
-                                <div key={index} className="flex items-center gap-2">
-                                    <span className="text-green-500">✓</span>
-                                    <span className="text-gray-600">{service}</span>
-                                </div>
-                            ))}
-                        </div>
+                            <img src={carCol} alt="Workshop" className="rounded-lg mb-6" />
+
+                            <div className="grid grid-cols-1 gap-1 text-sm px-2">
+                                {[
+                                    "General Auto Repair & Maintenance",
+                                    "Transmission Repair & Replacement",
+                                    "Tire Repair and Replacement",
+                                    "State Emissions Inspection",
+                                    "Break Job / Break Services",
+                                    "Electrical Diagnostics",
+                                    "Fuel System Repairs",
+                                    "Starting and Charging Repair",
+                                    "Steering and Suspension Work",
+                                    "Emission Repair Facility",
+                                    "Wheel Alignment",
+                                    "Computer Diagnostics Testing",
+                                ].map((service, index) => (
+                                    <div key={index} className="flex items-center gap-2">
+                                        <span className="text-red-500 text-[18px]">✓</span>
+                                        <span className="text-gray-600 text-[18px]">{service}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </span>
                     </div>
                 </div>
             </section>
@@ -214,30 +254,33 @@ export default function Home({ currentPage, onNavigate }) {
             {/* Video Section */}
             <section className="py-16 bg-gray-900 text-white">
                 <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+
                     <div>
-                        <p className="text-red-600 text-sm font-semibold mb-2">Working since 1992</p>
-                        <h2 className="text-3xl font-bold mb-6">
+                        <p className="text-md font-semibold mb-2">Working since 1992 </p>
+                        <hr className="max-w-[40px] relative left-39 -top-4.5 text-red-600" />
+                        <h2 className="text-4xl font-bold mb-6">
                             We are leader
                             <br />
                             in Car Mechanical Work
                         </h2>
-                        <button className="bg-red-600 text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-red-700">
-                            <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                                        clipRule="evenodd"
-                                    />
-                                </svg>
+                        <button className="px-0 py-3  rounded-full flex items-center gap-2 ">
+                            <svg className="w-16 h-16  bg-white rounded-full flex items-center justify-center" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    className="text-red-600"
+                                    fillRule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                    clipRule="evenodd"
+                                />
+                            </svg>
+                            <div className="flex flex-col items-start gap-2">
+                                <p className="text-sm text-gray-400">
+                                    WATCH INTRO VIDEO
+                                </p>
+                                <span className="text-xs text-gray-400">ABOUT US</span>
                             </div>
-                            WATCH INTRO VIDEO
-                            <span className="text-xs">ABOUT US</span>
                         </button>
                     </div>
-                    <div>
-                        <img src="/placeholder.svg?height=400&width=500" alt="Car tires" className="rounded-lg" />
-                    </div>
+
                 </div>
             </section>
 
@@ -260,7 +303,6 @@ export default function Home({ currentPage, onNavigate }) {
                 </div>
             </section>
 
-            <Footer />
-        </div>
+        </Layout>
     )
 }

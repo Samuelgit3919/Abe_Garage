@@ -1,11 +1,10 @@
-import Header from "./components/header"
-import Footer from "./components/footer"
+import Header from "../../Header/Header"
+import Footer from "../../Footer/Footer"
+import Layout from "../../../Layout"
 
-export default function Login({ currentPage, onNavigate }) {
+export default function Login() {
     return (
-        <div className="min-h-screen">
-            <Header currentPage={currentPage} onNavigate={onNavigate} />
-
+        <Layout className="min-h-screen">
             <main className="py-16 bg-gray-50">
                 <div className="max-w-md mx-auto px-4">
                     <div className="bg-white rounded-lg shadow-sm p-8">
@@ -41,8 +40,6 @@ export default function Login({ currentPage, onNavigate }) {
                     </div>
                 </div>
             </main>
-
-            <Footer />
-        </div>
+        </Layout>
     )
 }
