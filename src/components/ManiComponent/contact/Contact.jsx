@@ -1,7 +1,6 @@
 
 
-import Header from "../../Header/Header"
-import Footer from "../../Footer/Footer"
+import tire from "../../../assets/DisplayImages/tire.jpg"
 import Layout from "../../../Layout"
 
 export default function Contact({ onNavigate }) {
@@ -11,19 +10,19 @@ export default function Contact({ onNavigate }) {
             {/* Hero Section */}
             <section className="relative h-64 bg-gray-900 flex items-center">
                 <div
-                    className="absolute inset-0 bg-cover bg-center opacity-70"
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{
-                        backgroundImage: `url('/placeholder.svg?height=300&width=1200')`,
+                        backgroundImage: `linear-gradient(to right, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.7) 50%, rgba(17, 24, 39, 0.3) 100%), url(${tire})`,
                     }}
                 />
-                <div className="relative max-w-7xl mx-auto px-4 text-white">
+                <div className="relative md:left-80  max-w-7xl  px-4 text-white">
                     <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
                     <div className="flex items-center gap-2 text-sm">
                         <button onClick={() => onNavigate("home")} className="text-red-400 hover:underline">
                             Home
                         </button>
                         <span>→</span>
-                        <span>About Us</span>
+                        <span>contact</span>
                     </div>
                 </div>
             </section>
@@ -97,8 +96,8 @@ export default function Contact({ onNavigate }) {
             </section>
 
             {/* Appointment Section */}
-            <section className="py-12 bg-red-600 text-white">
-                <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            <section className="py-12 bg-red-600 max-w-6xl mt-30 mb-60 mx-auto text-white">
+                <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
                         <h2 className="text-2xl font-bold mb-2">Schedule Your Appointment Today</h2>
                         <p className="text-red-100">Your Automotive Repair & Maintenance Service Specialist</p>

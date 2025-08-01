@@ -1,7 +1,4 @@
 
-
-import Header from "../../Header/Header"
-import Footer from "../../Footer/Footer"
 import carCol from "../../../assets/DisplayImages/car-col.png"
 import tire from "../../../assets/DisplayImages/tire.jpg"
 import Gear from "../../../assets/DisplayImages/Gear.jpg"
@@ -19,6 +16,7 @@ export default function About({ onNavigate }) {
         { icon: price, title: "Best Prices in Town" },
         { icon: trophy, title: "Awarded Workshop" },
     ]
+
     return (
         <Layout className="min-h-screen">
 
