@@ -13,8 +13,12 @@ import flatTire from "../../../assets/ServiceImages/flat-tire.png"
 import sprayGun from "../../../assets/ServiceImages//spray-gun.png"
 import carEngine from "../../../assets/ServiceImages//car-engine.png"
 import turbocharger from "../../../assets/Icons/Turbocharger.png"
-
+import trophy from "../../../assets/Icons/trophy.png"
+import price from "../../../assets/Icons/price-tag.png"
+import mechanic from "../../../assets/Icons/car.png"
+import wrench from "../../../assets/Icons/wrench.png"
 import Layout from "../../../Layout"
+import tire from "../../../assets/DisplayImages/tire.jpg"
 
 
 
@@ -50,6 +54,12 @@ export default function Home({ onNavigate }) {
             category: "SERVICE AND REPAIRS",
             img: sprayGun
         },
+    ]
+    const items = [
+        { icon: mechanic, title: "Certified Expert Mechanics" },
+        { icon: wrench, title: "Fast And Quality Service" },
+        { icon: price, title: "Best Prices in Town" },
+        { icon: trophy, title: "Awarded Workshop" },
     ]
 
     return (
@@ -202,15 +212,10 @@ export default function Home({ onNavigate }) {
                         </p>
 
                         <div className="space-y-6">
-                            {[
-                                { icon: "👨‍🔧", title: "Certified Expert Mechanics" },
-                                { icon: "⚡", title: "Fast And Quality Service" },
-                                { icon: "💰", title: "Best Prices in Town" },
-                                { icon: "🏆", title: "Awarded Workshop" },
-                            ].map((item, index) => (
+                            {items.map((item, index) => (
                                 <div key={index} className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-xl">
-                                        {item.icon}
+                                    <div className="w-12 h-12 flex items-center justify-center text-xl">
+                                        <img src={item.icon} alt="" className="text-red-600  object-fit filter-red" />
                                     </div>
                                     <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
                                 </div>
@@ -223,7 +228,7 @@ export default function Home({ onNavigate }) {
                         <hr className="max-w-[40px] relative font-bold  left-68 -top-7.5 text-red-600" />
                         <span className="flex gap-6 items-start">
 
-                            <img src={carCol} alt="Workshop" className="rounded-lg mb-6" />
+                            <img src={carCol} alt="Workshop" className="rounded-lg mb-6 filter-red" />
 
                             <div className="grid grid-cols-1 gap-1 text-sm px-2">
                                 {[
@@ -252,41 +257,48 @@ export default function Home({ onNavigate }) {
             </section>
 
             {/* Video Section */}
-            <section className="py-16 bg-gray-900 text-white">
-                <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+            <section className="relative py-16 bg-gray-900 text-white overflow-hidden">
+                {/* Background Image with Gradient Overlay */}
+                <div
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style={{
+                        backgroundImage: `linear-gradient(to right, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.7) 50%, rgba(17, 24, 39, 0.3) 100%), url(${tire})`,
+                    }}
+                />
 
+                {/* Content */}
+                <div className="relative z-10 max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <p className="text-md font-semibold mb-2">Working since 1992 </p>
-                        <hr className="max-w-[40px] relative left-39 -top-4.5 text-red-600" />
+                        <p className="text-md font-semibold mb-2">Working since 1992</p>
+                        <hr className="w-[40px] h-0.5 bg-red-600 border-0 mb-4" />
                         <h2 className="text-4xl font-bold mb-6">
                             We are leader
                             <br />
                             in Car Mechanical Work
                         </h2>
-                        <button className="px-0 py-3  rounded-full flex items-center gap-2 ">
-                            <svg className="w-16 h-16  bg-white rounded-full flex items-center justify-center" fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    className="text-red-600"
-                                    fillRule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                                    clipRule="evenodd"
-                                />
-                            </svg>
-                            <div className="flex flex-col items-start gap-2">
-                                <p className="text-sm text-gray-400">
-                                    WATCH INTRO VIDEO
-                                </p>
+                        <button className="flex items-center gap-4 group">
+                            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center group-hover:scale-105 transition-transform">
+                                <svg className="w-6 h-6 text-red-600 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                        clipRule="evenodd"
+                                    />
+                                </svg>
+                            </div>
+                            <div className="flex flex-col items-start">
+                                <p className="text-sm text-gray-300 font-medium">WATCH INTRO VIDEO</p>
                                 <span className="text-xs text-gray-400">ABOUT US</span>
                             </div>
                         </button>
                     </div>
-
+                    <div className="hidden md:block">{/* This space can be used for additional content if needed */}</div>
                 </div>
             </section>
 
             {/* Appointment Section */}
-            <section className="py-12 bg-red-600 text-white">
-                <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            <section className="py-12 bg-red-600 max-w-6xl mt-30 mb-60 mx-auto text-white">
+                <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
                         <h2 className="text-2xl font-bold mb-2">Schedule Your Appointment Today</h2>
                         <p className="text-red-100">Your Automotive Repair & Maintenance Service Specialist</p>
